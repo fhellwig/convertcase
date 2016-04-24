@@ -2,6 +2,8 @@
 
 Converts between snake and camel case.
 
+Version 1.0.1
+
 This module provides two conversion functions and two utility functions:
 
 - `toCamelCase({string|array|object})`
@@ -14,6 +16,10 @@ This module provides two conversion functions and two utility functions:
 To install:
 
     $ npm install --save convertcase
+
+To test:
+
+    $ npm test
 
 To use:
 
@@ -43,21 +49,6 @@ where `fn` is either `toCamelCase` or `toSnakeCase`.
 
 The functions themselves are lossy. Meaning that converting to snake case and then back to camel case may *not* result in the same original string.
 
-### `toSnakeCase(str)`
-
-Copies each character in input to the output. If an upper case character is preceded by a lower case character or digit, output an underscore before the upper case character. Note that this preserves leading and embedded underscores.
-
-Examples:
-
-```    
-thisIsMyString -> this_is_my_string
-Embedded_Underscore -> embedded_underscore
-_LeadingUnderscore -> _leading_underscore
-ThisWasALLUPPER -> this_was_allupper
-Digits123AndMoreDigits456 -> digits123_and_more_digits456
-$DollarSignsAreOk -> $dollar_signs_are_ok
-```
-
 ### `toCamelCase(str)`
 
 Preserves leading underscores. Then converts the string, converting any character following an embedded underscore to upper case. Embedded underscores are not copied to the output.
@@ -71,6 +62,21 @@ _leading_underscore -> _leadingUnderscore
 this_was_allupper -> thisWasAllupper
 digits123_and_more_digits456 -> digits123AndMoreDigits456
 $dollar_signs_are_ok -> $dollarSignsAreOk
+```
+
+### `toSnakeCase(str)`
+
+Copies each character from the input to the output. If an upper case character is preceded by a lower case character or digit, output an underscore before the upper case character. Note that this preserves leading and embedded underscores. The output is always lower case.
+
+Examples:
+
+```    
+thisIsMyString -> this_is_my_string
+Embedded_Underscore -> embedded_underscore
+_LeadingUnderscore -> _leading_underscore
+ThisWasALLUPPER -> this_was_allupper
+Digits123AndMoreDigits456 -> digits123_and_more_digits456
+$DollarSignsAreOk -> $dollar_signs_are_ok
 ```
 
 ### `isUpperCase(str)`
