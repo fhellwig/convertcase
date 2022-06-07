@@ -2,7 +2,7 @@
 
 Converts between snake and camel case.
 
-Version 1.0.1
+Version 1.0.2
 
 This module provides two conversion functions and two utility functions:
 
@@ -15,7 +15,7 @@ This module provides two conversion functions and two utility functions:
 
 To install:
 
-    $ npm install --save convertcase
+    $ npm install @fhellwig/convertcase
 
 To test:
 
@@ -24,7 +24,7 @@ To test:
 To use:
 
 ```javascript
-const convertcase = require('convertcase');
+import { toCamelCase, toSnakeCase } from '@fhellwig/convertcase';
 
 console.log(convertcase.toCamelCase('this_is_my_string'));
 // outputs thisIsMyString
@@ -43,11 +43,12 @@ Each function below is described as taking a string. However, the input to the t
 Invariant: The output of either conversion function, when run through the function again, results in identical output. Formally,
 
 ```javascript
-fn(s) === fn(fn(s))
+fn(s) === fn(fn(s));
 ```
+
 where `fn` is either `toCamelCase` or `toSnakeCase`.
 
-The functions themselves are lossy. Meaning that converting to snake case and then back to camel case may *not* result in the same original string.
+The functions themselves are lossy. Meaning that converting to snake case and then back to camel case may _not_ result in the same original string.
 
 ### `toCamelCase(str)`
 
@@ -70,7 +71,7 @@ Copies each character from the input to the output. If an upper case character i
 
 Examples:
 
-```    
+```
 thisIsMyString -> this_is_my_string
 Embedded_Underscore -> embedded_underscore
 _LeadingUnderscore -> _leading_underscore
@@ -81,17 +82,17 @@ $DollarSignsAreOk -> $dollar_signs_are_ok
 
 ### `isUpperCase(str)`
 
-Returns true if *every* character in `str` is an upper case letter.
+Returns true if _every_ character in `str` is an upper case letter.
 
 ### `isLowerCase(str)`
 
-Returns true if *every* character in `str` is an lower case letter.
+Returns true if _every_ character in `str` is an lower case letter.
 
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2016 Frank Hellwig
+Copyright (c) 2022 Frank Hellwig
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
