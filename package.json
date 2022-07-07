@@ -1,5 +1,5 @@
 {
-  "name": "@fhellwig/convertcase",
+  "name": "convertcase",
   "version": "1.0.2",
   "description": "Converts between snake and camel case.",
   "main": "convertcase.js",

@@ -15,7 +15,7 @@ This module provides two conversion functions and two utility functions:
 
 To install:
 
-    $ npm install @fhellwig/convertcase
+    $ npm install convertcase
 
 To test:
 
@@ -24,7 +24,7 @@ To test:
 To use:
 
 ```javascript
-import { toCamelCase, toSnakeCase } from '@fhellwig/convertcase';
+import { toCamelCase, toSnakeCase } from 'convertcase';
 
 console.log(convertcase.toCamelCase('this_is_my_string'));
 // outputs thisIsMyString
