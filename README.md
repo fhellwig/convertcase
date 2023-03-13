@@ -2,7 +2,7 @@
 
 Converts between snake and camel case.
 
-Version 1.0.2
+Version 1.0.3
 
 This module provides two conversion functions and two utility functions:
 
@@ -24,13 +24,16 @@ To test:
 To use:
 
 ```javascript
-import { toCamelCase, toSnakeCase } from 'convertcase';
+import { toCamelCase, toSnakeCase, toKebabCase } from 'convertcase';
 
 console.log(convertcase.toCamelCase('this_is_my_string'));
 // outputs thisIsMyString
 
 console.log(convertcase.toSnakeCase('thisIsMyString'));
 // outputs 'this_is_my_string'
+
+console.log(convertcase.toKebabCase('thisIsMyString'));
+// outputs 'this-is-my-string'
 ```
 
 ## API
@@ -46,7 +49,7 @@ Invariant: The output of either conversion function, when run through the functi
 fn(s) === fn(fn(s));
 ```
 
-where `fn` is either `toCamelCase` or `toSnakeCase`.
+where `fn` is either `toCamelCase`, `toSnakeCase`, or `toKebabCase`.
 
 The functions themselves are lossy. Meaning that converting to snake case and then back to camel case may _not_ result in the same original string.
 
@@ -80,6 +83,21 @@ Digits123AndMoreDigits456 -> digits123_and_more_digits456
 $DollarSignsAreOk -> $dollar_signs_are_ok
 ```
 
+### `toKebabCase(str)`
+
+Copies each character from the input to the output. If an upper case character is preceded by a lower case character or digit, output a dash before the upper case character. Note that this preserves leading and embedded dashes. The output is always lower case.
+
+Examples:
+
+```
+thisIsMyString -> this-is-my-string
+Embedded-Dash -> embedded-dash
+-LeadingDash -> -leading-dash
+ThisWasALLUPPER -> this-was-allupper
+Digits123AndMoreDigits456 -> digits123-and-more-digits456
+$DollarSignsAreOk -> $dollar-signs-are-ok
+```
+
 ### `isUpperCase(str)`
 
 Returns true if _every_ character in `str` is an upper case letter.
@@ -92,7 +110,7 @@ Returns true if _every_ character in `str` is an lower case letter.
 
 The MIT License (MIT)
 
-Copyright (c) 2022 Frank Hellwig
+Copyright (c) 2023 Frank Hellwig
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -3,7 +3,7 @@
 // objects. For objects, a new object is returned with the properties in the
 // specified case and any defined values copied from the original object.
 //==============================================================================
-// Copyright (c) 2022 Frank Hellwig
+// Copyright (c) 2023 Frank Hellwig
 //==============================================================================
 
 export function toCamelCase(val) {
@@ -12,6 +12,10 @@ export function toCamelCase(val) {
 
 export function toSnakeCase(val) {
   return convert(_toSnakeCase, val);
+}
+
+export function toKebabCase(val) {
+  return convert(_toKebabCase, val);
 }
 
 export function isUpperCase(str) {
@@ -92,6 +96,31 @@ function _toSnakeCase(str) {
         flag = false;
       }
       buf.push(c.toLowerCase());
+    } else if (c === '-') {
+      buf.push('_');
+      flag = false;
+    } else {
+      flag = _isLowerCase(c) || _isDigit(c);
+      buf.push(c);
+    }
+  }
+  return buf.join('');
+}
+
+function _toKebabCase(str) {
+  let buf = [];
+  let flag = false;
+  for (let i = 0; i < str.length; i++) {
+    let c = str[i];
+    if (_isUpperCase(c)) {
+      if (flag) {
+        buf.push('-');
+        flag = false;
+      }
+      buf.push(c.toLowerCase());
+    } else if (c === '_') {
+      buf.push('-');
+      flag = false;
     } else {
       flag = _isLowerCase(c) || _isDigit(c);
       buf.push(c);

@@ -1,6 +1,6 @@
 {
   "name": "convertcase",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Converts between snake and camel case.",
   "main": "convertcase.js",
   "type": "module",
@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/fhellwig/convertcase",
   "devDependencies": {
-    "mocha": "^10.0.0",
+    "mocha": "^10.2.0",
     "should": "^13.2.3"
   }
 }

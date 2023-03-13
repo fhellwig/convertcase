@@ -1,10 +1,5 @@
 import 'should';
-import {
-  isLowerCase,
-  isUpperCase,
-  toCamelCase,
-  toSnakeCase
-} from './convertcase.js';
+import { isLowerCase, isUpperCase, toCamelCase, toKebabCase, toSnakeCase } from './convertcase.js';
 
 describe('convertcase', function () {
   describe('toCamelCase()', function () {
@@ -49,8 +44,43 @@ describe('convertcase', function () {
     it('should convert _Foobar to _foobar', function () {
       toSnakeCase('_Foobar').should.equal('_foobar');
     });
+    it('should convert _Foo-dash-BarDone to _foo_dash_bar_done', function () {
+      toSnakeCase('_Foo-dash-BarDone').should.equal('_foo_dash_bar_done');
+    });
+    it('should convert ---fooBar to ___foo_bar', function () {
+      toSnakeCase('---fooBar').should.equal('___foo_bar');
+    });
     it('should keep _foobar unchanged', function () {
       toSnakeCase('_foobar').should.equal('_foobar');
+    });
+  });
+  describe('toKebabCase()', function () {
+    it('should convert fooBar to foo-bar', function () {
+      toKebabCase('fooBar').should.equal('foo-bar');
+    });
+    it('should keep foo-bar unchanged', function () {
+      toKebabCase('foo-bar').should.equal('foo-bar');
+    });
+    it('should convert FOOBAR to foobar', function () {
+      toKebabCase('FOOBAR').should.equal('foobar');
+    });
+    it('should convert _fooBar to -foo-bar', function () {
+      toKebabCase('_fooBar').should.equal('-foo-bar');
+    });
+    it('should convert _FooBar to -foo-bar', function () {
+      toKebabCase('_FooBar').should.equal('-foo-bar');
+    });
+    it('should convert _Foobar to -foobar', function () {
+      toKebabCase('_Foobar').should.equal('-foobar');
+    });
+    it('should convert _Foo-dash-BarDone to -foo-dash-bar-done', function () {
+      toKebabCase('_Foo-dash-BarDone').should.equal('-foo-dash-bar-done');
+    });
+    it('should convert ___fooBar to ---foo_bar', function () {
+      toKebabCase('___fooBar').should.equal('---foo-bar');
+    });
+    it('should keep -foobar unchanged', function () {
+      toKebabCase('-foobar').should.equal('-foobar');
     });
   });
   describe('isUpperCase()', function () {
