@@ -1,7 +1,7 @@
 {
   "name": "convertcase",
-  "version": "1.0.4",
-  "description": "Converts between snake, kebab, and camel case.",
+  "version": "1.0.5",
+  "description": "Converts between camel, snake, and kebab case.",
   "main": "convertcase.js",
   "type": "module",
   "scripts": {
