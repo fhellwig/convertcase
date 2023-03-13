@@ -2,12 +2,13 @@
 
 Converts between snake and camel case.
 
-Version 1.0.3
+Version 1.0.4
 
-This module provides two conversion functions and two utility functions:
+This module provides three conversion functions and two utility functions:
 
 - `toCamelCase({string|array|object})`
 - `toSnakeCase({string|array|object})`
+- `toKebabCase({string|array|object})`
 - `isUpperCase({string})`
 - `isLowerCase({string})`
 
@@ -62,6 +63,7 @@ Examples:
 ```
 this_is_my_string -> thisIsMyString
 embedded_underscore -> embeddedUnderscore
+embedded-dash -> embeddedDash
 _leading_underscore -> _leadingUnderscore
 this_was_allupper -> thisWasAllupper
 digits123_and_more_digits456 -> digits123AndMoreDigits456

@@ -24,6 +24,27 @@ describe('convertcase', function () {
     it('should keep _FooBar unchanged', function () {
       toCamelCase('_FooBar').should.equal('_FooBar');
     });
+    it('should convert foo-bar to fooBar', function () {
+      toCamelCase('foo-bar').should.equal('fooBar');
+    });
+    it('should keep fooBar unchanged', function () {
+      toCamelCase('fooBar').should.equal('fooBar');
+    });
+    it('should convert FOO-BAR to FOOBAR', function () {
+      toCamelCase('FOO-BAR').should.equal('FOOBAR');
+    });
+    it('should convert -foo-bar to -fooBar', function () {
+      toCamelCase('-foo-bar').should.equal('-fooBar');
+    });
+    it('should convert -Foo-Bar to -FooBar', function () {
+      toCamelCase('-Foo-Bar').should.equal('-FooBar');
+    });
+    it('should convert -Foo-bar to -Foobar', function () {
+      toCamelCase('-Foo-bar').should.equal('-FooBar');
+    });
+    it('should keep -FooBar unchanged', function () {
+      toCamelCase('-FooBar').should.equal('-FooBar');
+    });
   });
   describe('toSnakeCase()', function () {
     it('should convert fooBar to foo_bar', function () {

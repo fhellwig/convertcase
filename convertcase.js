@@ -61,21 +61,21 @@ function _toCamelCase(str) {
   for (let i = 0; i < str.length; i++) {
     let c = str[i];
     switch (state) {
-      case 0: // ignore leading underscores
+      case 0: // ignore leading underscores or dashes
         buf.push(c);
-        if (c !== '_') {
+        if (c !== '_' || c !== '-') {
           state = 1;
         }
         break;
-      case 1: // process characters until an underscore is found
-        if (c === '_') {
+      case 1: // process characters until an underscore or dash is found
+        if (c === '_' || c === '-') {
           state = 2;
         } else {
           buf.push(c);
         }
         break;
-      case 2: // upper case the character after an underscore
-        if (c !== '_') {
+      case 2: // upper case the character after an underscore or dash
+        if (c !== '_' || c !== '-') {
           buf.push(c.toUpperCase());
           state = 1;
         }
