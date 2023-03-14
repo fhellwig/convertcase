@@ -2,7 +2,7 @@
 
 Converts between camel, snake, and kebab case.
 
-Version 1.0.5
+Version 1.0.6
 
 This module provides three conversion functions and two utility functions:
 
