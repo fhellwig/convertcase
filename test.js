@@ -45,6 +45,9 @@ describe('convertcase', function () {
     it('should keep -FooBar unchanged', function () {
       toCamelCase('-FooBar').should.equal('-FooBar');
     });
+    it('should convert foo_-_-bar to fooBar', function () {
+      toCamelCase('foo_-_-bar').should.equal('fooBar');
+    });
   });
   describe('toSnakeCase()', function () {
     it('should convert fooBar to foo_bar', function () {

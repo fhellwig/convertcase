@@ -75,7 +75,7 @@ function _toCamelCase(str) {
         }
         break;
       case 2: // upper case the character after an underscore or dash
-        if (c !== '_' || c !== '-') {
+        if (c !== '_' && c !== '-') {
           buf.push(c.toUpperCase());
           state = 1;
         }
